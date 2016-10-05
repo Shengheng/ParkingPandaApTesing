@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using Newtonsoft.Json;
 using Problem1.Models;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Problem1
 {
@@ -19,8 +14,8 @@ namespace Problem1
     {
 
         protected void Page_Load(object sender, EventArgs e)
-        {         
-
+        {
+            lbl_notify.Visible = false;
         }
 
         protected async void btn_Login_Click(object sender, EventArgs e)
@@ -64,8 +59,6 @@ namespace Problem1
                         var response = await client.PutAsJsonAsync<UpdateUserData>("users/" + userID, updateUser);
 
                         ApiResponse(response);
-                        lbl_notify.Text = "Your information has been updated!";
-                        lbl_notify.Visible = true;
                     }                    
                 }
             }
@@ -80,9 +73,29 @@ namespace Problem1
                 myCookie.Expires = DateTime.Now.AddDays(-1d);
                 Response.Cookies.Add(myCookie);
             }
+            ClearTextBox(this.Controls);
         }
 
-        protected void ApiResponse(HttpResponseMessage apiResponse)
+        /// <summary>
+        /// Clear all the textbox in recursive way
+        /// </summary>
+        /// <param name="cc"></param>
+        private void ClearTextBox(ControlCollection cc)
+        {
+            foreach (Control item in cc)
+            {
+                if(item is TextBox)
+                {
+                    ((TextBox)item).Text = "";
+                }
+                if(item.Controls != null)
+                {
+                    ClearTextBox(item.Controls);
+                }
+            }
+        }
+
+        private void ApiResponse(HttpResponseMessage apiResponse)
         {
             //deserialize JSON result 
             var result = JsonConvert.DeserializeObject<ResponseOfUser>(
@@ -91,16 +104,12 @@ namespace Problem1
             {
                                                 
                 PopulateUserData(result);
-                lbl_notify.Visible = false;
             }
-            else
-            {
                 lbl_notify.Text = result.Message;
                 lbl_notify.Visible = true;
-            }
         }
 
-        protected void PopulateUserData(ResponseOfUser result)
+        private void PopulateUserData(ResponseOfUser result)
         {
                 //Populate user information to controls
                 var user = result.Data;
@@ -121,7 +130,7 @@ namespace Problem1
         /// </summary>
         /// <param name="user"></param>
         /// 
-        protected void CreateCookies(UserData user)
+        private void CreateCookies(UserData user)
         {
             //generate user cookies
             HttpCookie userApiCred = new HttpCookie("apiUser");
@@ -138,7 +147,7 @@ namespace Problem1
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        protected HttpClient CreateHttpClient(string username, string password)
+        private HttpClient CreateHttpClient(string username, string password)
         {
             //generate and encode user login credential to pass
             var loginCred = Convert.ToBase64String(

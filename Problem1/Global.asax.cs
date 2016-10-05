@@ -11,6 +11,13 @@ namespace Problem1
     {
         protected void Application_Start(object sender, EventArgs e)
         {
+            
+        }
+        protected void Application_BeginRequest()
+        {
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetExpires(DateTime.Now.AddHours(-1));
+            Response.Cache.SetNoStore();
         }
     }
 }

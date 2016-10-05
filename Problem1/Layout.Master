@@ -11,8 +11,7 @@
 <body>
     <form id="form1" runat="server">
         <div class="col-md-12 col-md-offset-1">
-            <h2><img src="images/parkingpanda.png" /> </h2>
-            
+            <h2><img src="images/parkingpanda.png" /> </h2>           
         </div>
         <div class="row">
             <asp:ContentPlaceHolder ID="mainBody" runat="server">
