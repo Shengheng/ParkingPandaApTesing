@@ -15,6 +15,12 @@ namespace Problem1
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //if (!IsPostBack)
+            //{
+            //    logged.Visible = false;
+            //    user.Visible = false;
+            //    save.Visible = false;
+            //}
             lbl_notify.Visible = false;
         }
 
@@ -44,7 +50,7 @@ namespace Problem1
 
                     //ApiRequest(txt_email.Text, apiPassword, "users/" + userID);
                     using (var client = CreateHttpClient(txt_email.Text, apiPassword))
-                    { 
+                    {
                         var updateUser = new UpdateUserData
                         {
                             Email = txt_email.Text,
@@ -53,13 +59,13 @@ namespace Problem1
                             LastName = txt_lastName.Text,
                             Phone = txt_phone.Text,
                             ReceiveSmsNotifications = cbox_sms.Checked,
-                            Password = txt_changePwd.Text == "" ? null:txt_changePwd.Text,
-                            CurrentPassword = txt_currentPwd.Text == "" ? null:txt_currentPwd.Text
-                        };                        
+                            Password = txt_changePwd.Text == "" ? null : txt_changePwd.Text,
+                            CurrentPassword = txt_currentPwd.Text == "" ? null : txt_currentPwd.Text
+                        };
                         var response = await client.PutAsJsonAsync<UpdateUserData>("users/" + userID, updateUser);
 
                         ApiResponse(response);
-                    }                    
+                    }
                 }
             }
 
@@ -84,11 +90,11 @@ namespace Problem1
         {
             foreach (Control item in cc)
             {
-                if(item is TextBox)
+                if (item is TextBox)
                 {
                     ((TextBox)item).Text = "";
                 }
-                if(item.Controls != null)
+                if (item.Controls != null)
                 {
                     ClearTextBox(item.Controls);
                 }
@@ -102,27 +108,30 @@ namespace Problem1
                     apiResponse.Content.ReadAsStringAsync().Result);
             if (apiResponse.IsSuccessStatusCode)
             {
-                                                
                 PopulateUserData(result);
-            }
-                lbl_notify.Text = result.Message;
-                lbl_notify.Visible = true;
+                login.Visible = false;
+                logged.Visible = true;
+                user.Visible = true;
+                save.Visible = true;
+            }          
+            lbl_notify.Text = result.Message;
+            lbl_notify.Visible = true;
         }
 
         private void PopulateUserData(ResponseOfUser result)
         {
-                //Populate user information to controls
-                var user = result.Data;
-                txt_firstName.Text = user.FirstName;
-                txt_lastName.Text = user.LastName;
-                txt_email.Text = user.Email;
-                txt_phone.Text = user.Phone;
-                cbox_email.Checked = user.ReceiveEmail;
-                cbox_sms.Checked = user.ReceiveSmsNotifications;
+            //Populate user information to controls
+            var user = result.Data;
+            txt_firstName.Text = user.FirstName;
+            txt_lastName.Text = user.LastName;
+            txt_email.Text = user.Email;
+            txt_phone.Text = user.Phone;
+            cbox_email.Checked = user.ReceiveEmail;
+            cbox_sms.Checked = user.ReceiveSmsNotifications;
 
-                lbl_loggedUser.Text = user.FirstName;
-                
-                CreateCookies(user);
+            lbl_loggedUser.Text = user.FirstName;
+
+            CreateCookies(user);
         }
 
         /// <summary>
@@ -139,7 +148,7 @@ namespace Problem1
             userApiCred.Values["apiPassword"] = user.ApiPassword;
 
             Response.Cookies.Add(userApiCred);
-        }    
+        }
 
         /// <summary>
         /// Create httpclient for each api request
@@ -165,6 +174,6 @@ namespace Problem1
             return client;
         }
 
-        
+
     }
 }

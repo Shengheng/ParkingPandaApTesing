@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="mainBody" runat="server">
     <div class="row">
         <div id="left" class="col-md-2 col-md-offset-3">
-            <div id="login" class="form-group">
+            <div id="login" class="form-group" runat="server">
                 <div>
                     <asp:Label Text="Username" runat="server" ID="lbl_userName" />
                     <asp:TextBox runat="server" ID="txt_userName" TextMode="Email" CssClass="form-control" />
@@ -17,12 +17,13 @@
                     <asp:TextBox runat="server" ID="txt_password" TextMode="Password" CssClass="form-control" />
                     <asp:RequiredFieldValidator ErrorMessage="The password field is required" ControlToValidate="txt_password" runat="server" ValidationGroup="vld_login" Display="None" />
                 </div>
+                <br />
                 <div>
                     <asp:Button Text="Log in" runat="server" ID="btn_Login" OnClick="btn_Login_Click" ValidationGroup="vld_login" CssClass="btn btn-degault" />
                 </div>
             </div>
 
-            <div id="logged">
+            <div id="logged" runat="server" visible="false">
                 <asp:Label Text="Welcome to Parking Panda" runat="server" CssClass="h5" />
                 <asp:Label runat="server" ID="lbl_loggedUser" CssClass="text-success text-uppercase h4" />
             </div>
@@ -35,7 +36,7 @@
                 <asp:ValidationSummary runat="server" ValidationGroup="vld_save" ID="vld_group_save" />
             </div>
 
-            <div id="user" class="form-group">
+            <div id="user" class="form-group" runat="server" visible="false">
                 <div>
                     <div>
                         <asp:Label Text="First Name" runat="server" ID="lbl_firstName" />
@@ -79,7 +80,7 @@
                 </div>
             </div>
 
-            <div id="save">
+            <div id="save" runat="server" visible="false">
                 <asp:Button Text="Save" runat="server" ID="btn_save" OnClick="btn_Save_Click" ValidationGroup="vld_save" CssClass="btn btn-degault" />
 
                 <input type="reset" name="btn_cancel" value="Cancel" class="btn btn-default" />

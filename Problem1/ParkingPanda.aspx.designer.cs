@@ -13,6 +13,15 @@ namespace Problem1 {
     public partial class ParkingPanda {
         
         /// <summary>
+        /// login control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl login;
+        
+        /// <summary>
         /// lbl_userName control.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,15 @@ namespace Problem1 {
         protected global::System.Web.UI.WebControls.Button btn_Login;
         
         /// <summary>
+        /// logged control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl logged;
+        
+        /// <summary>
         /// lbl_loggedUser control.
         /// </summary>
         /// <remarks>
@@ -92,6 +110,15 @@ namespace Problem1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ValidationSummary vld_group_save;
+        
+        /// <summary>
+        /// user control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl user;
         
         /// <summary>
         /// lbl_firstName control.
@@ -236,6 +263,15 @@ namespace Problem1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_reenterPwd;
+        
+        /// <summary>
+        /// save control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl save;
         
         /// <summary>
         /// btn_save control.

@@ -12,18 +12,21 @@
         //    }
         //});
         
-        if ($("#mainBody_lbl_loggedUser").text().length === 0) {
-            $("#login").show();
-            $("#logged").hide();
-            $("#user").hide();
-            $("#save").hide();
+        //if ($("#mainBody_lbl_loggedUser").text().length === 0) {
+        //    $("#login").show();
+        //    $("#logged").hide();
+        //    $("#user").hide();
+        //    $("#save").hide();
 
-        }
-        else {
-            $("#login").hide();
-            $("#logged").show();
-            $("##user").show();
-            $("#save").show();
+        //}
+        //else {
+        //    $("#login").hide();
+        //    $("#logged").show();
+        //    $("##user").show();
+        //    $("#save").show();
+        //}
+        if ($("#mainBody_lbl_notify").text() === "Account successfully updated") {
+            $("#mainBody_lbl_notify").css('color', 'blue');
         }
     });
 });
