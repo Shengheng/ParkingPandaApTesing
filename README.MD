@@ -8,4 +8,4 @@
 ##### P2-JS Date manipulation
 *	Display matched dates with selected weekdays from a start date to end date
 *	Skill used: 
-	*	jQuery, HTML Date/JavaScript Date Convertion, BootStrap
+	*	jQuery, HTML Date/JavaScript Date Conversion, BootStrap
