@@ -47,9 +47,10 @@ namespace Problem1
                 {
                     var userID = apiUser["UserID"];
                     var apiPassword = apiUser["apiPassword"];
+                    var userEmail = apiUser["UserEmail"];
 
                     //ApiRequest(txt_email.Text, apiPassword, "users/" + userID);
-                    using (var client = CreateHttpClient(txt_email.Text, apiPassword))
+                    using (var client = CreateHttpClient(userEmail, apiPassword))
                     {
                         var updateUser = new UpdateUserData
                         {
@@ -146,6 +147,7 @@ namespace Problem1
             userApiCred.Expires = DateTime.Now.AddHours(12);
             userApiCred.Values["UserID"] = user.Id.ToString();
             userApiCred.Values["apiPassword"] = user.ApiPassword;
+            userApiCred.Values["UserEmail"] = user.Email;
 
             Response.Cookies.Add(userApiCred);
         }
