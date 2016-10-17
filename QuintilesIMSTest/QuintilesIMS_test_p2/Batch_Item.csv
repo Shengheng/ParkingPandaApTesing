@@ -1,0 +1,5 @@
+﻿Name,Email,Init_Password,Role,Reason_For_Access
+Susan Smith,ssmith@company1.com,Ba/W)W-Ai,SuperUser,"Because I am ""cool"", I can do whatever I want."
+Alex O'Connor,alexoconnor@univ1.edu,"uoG8E,!Ha",ReadOnly,I need to access report for budget < 1M $
+John J. Peterson,john.p@comany2.com,J.Pe1234!,Auditor,Access to 1) all reports; 2)server system logs for ""Audit""and [app]_Access_Log
+"Chen, Mei 陈梅",chehmei12@123.com,<:-)>{;=0},ReadOnly,我负责中国分公司财务

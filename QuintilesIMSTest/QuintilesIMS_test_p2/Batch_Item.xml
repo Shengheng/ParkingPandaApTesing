@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Batch_Item>
+  <Item>
+    <UserName>Susan Smith</UserName>
+    <Email>ssmith@company1.com</Email>
+    <Init_Password>Ba/W)W-Ai</Init_Password>
+    <Role>SuperUser</Role>
+    <Reason_For_Access>Because I am "cool", I can do whatever I want.</Reason_For_Access>
+  </Item>
+  <Item>
+    <UserName>Alex O'Connor</UserName>
+    <Email>alexoconnor@univ1.edu</Email>
+    <Init_Password>uoG8E,!Ha</Init_Password>
+    <Role>ReadOnly</Role>
+    <Reason_For_Access>I need to access report for budget &lt; 1M $</Reason_For_Access>
+  </Item>
+  <Item>
+    <UserName>John J. Peterson</UserName>
+    <Email>john.p@comany2.com</Email>
+    <Init_Password>J.Pe1234!</Init_Password>
+    <Role>Auditor</Role>
+    <Reason_For_Access>Access to 1) all reports; 2)server system logs for "Audit"and [app]_Access_Log</Reason_For_Access>
+  </Item>
+  <Item>
+    <UserName>Chen, Mei 陈梅</UserName>
+    <Email>chehmei12@123.com</Email>
+    <Init_Password>&lt;:-)&gt;{;=0}</Init_Password>
+    <Role>ReadOnly</Role>
+    <Reason_For_Access>我负责中国分公司财务</Reason_For_Access>
+  </Item>
+</Batch_Item>
