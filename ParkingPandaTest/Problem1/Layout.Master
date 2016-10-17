@@ -1,0 +1,29 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Layout.master.cs" Inherits="Problem1.Layout" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Parking Panda API Tesing</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="col-md-12 col-md-offset-1">
+            <h2><img src="images/parkingpanda.png" /> </h2>           
+        </div>
+        <div class="row">
+            <asp:ContentPlaceHolder ID="mainBody" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <footer>
+        <p>&copy; <%: DateTime.Now.Year %> - Parking Panda API Testing @shz For Fun</p>
+    </footer>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
+    <script src="Scripts/WebApi_Interaction.js"></script>
+    <link href="Content/WebApi_Interaction.css" rel="stylesheet" />
+</body>
+</html>
