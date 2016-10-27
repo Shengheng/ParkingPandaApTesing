@@ -16,3 +16,5 @@
 #### Validate password complexity
 #### Generate complex password which pass the previous validation
 #### Generate .CSV / .XML -- encoding required
+
+### ADP API B2C implementation
